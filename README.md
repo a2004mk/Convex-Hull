@@ -22,7 +22,7 @@
 ```
 # Компиляция всех файлов + линковка SFML
 g++ -std=c++17 -Wall -I"C:\SFML\include" -L"C:\SFML\lib" ^
-    main.cpp Point.cpp GameState.cpp Renderer.cpp ^
+    Convex-Hull.cpp Point.cpp GameState.cpp Renderer.cpp ^
     InputHandler.cpp Button.cpp InputField.cpp ^
     EditPointWindow.cpp ConvexHull.cpp ^
     -lsfml-graphics -lsfml-window -lsfml-system ^
@@ -70,7 +70,7 @@ g++ -std=c++17 -Wall \
 ```
 # Структура проекта
 Convex-Hull/  
-├── main.cpp              # Точка входа, игровой цикл  
+├── Convex-Hull.cpp              # Точка входа, игровой цикл  
 ├── Point.h / Point.cpp   # Класс точки, утилиты (ориентация, расстояние)  
 ├── GameState.h / GameState.cpp   # Состояние приложения, конфигурация  
 ├── Renderer.h / Renderer.cpp     # Отрисовка всех элементов  
@@ -85,32 +85,41 @@ Convex-Hull/
 └── CMakeLists.txt   # Конфигурация сборки  
 
 # Работа программы
-![Convex Hull Visualization 2026-03-17 22-40-09](https://github.com/user-attachments/assets/bc005d8e-79a6-4060-bf74-bbb68260ab9a)
+
 
 
 ### Генерация множества из случайных 20 точек
-<img width="1192" height="798" alt="image" src="https://github.com/user-attachments/assets/8fc9734d-f396-49e5-9a6c-d0e135cb5e51" />
+![Convex Hull Visualization 2026-03-17 22-40-09](https://github.com/user-attachments/assets/305ee6ab-3181-4dba-af2b-d91184ee0873)
+
 
 
 ### Генерация множества из случайных 50 точек
-<img width="1177" height="794" alt="image" src="https://github.com/user-attachments/assets/5ae1005d-de8d-4177-bb27-40f35f0b31a4" />
+<img width="1180" height="794" alt="image" src="https://github.com/user-attachments/assets/67b65275-5435-43c2-9df9-0c7587548543" />
+
 
 ### Пустое поле после нажатия кнопки "Очистить"
-<img width="1180" height="801" alt="image" src="https://github.com/user-attachments/assets/435a347b-f31e-4fc5-b1e8-d6e53ea93783" />
+<img width="1181" height="793" alt="image" src="https://github.com/user-attachments/assets/6fcb262e-7d5a-49df-a17f-d92f6c78969a" />
+
 
 ### Режим добавления точек
-<img width="1182" height="797" alt="image" src="https://github.com/user-attachments/assets/1470a3bd-0d88-4fdd-8a51-e1ead6245b0c" />
+<img width="1188" height="800" alt="image" src="https://github.com/user-attachments/assets/0e368f1b-5034-4b45-ae5e-14b84fab4f2f" />
 
-<img width="1189" height="795" alt="image" src="https://github.com/user-attachments/assets/b8a64087-e57a-4550-a08f-4bb94921a270" />
+
+<img width="1188" height="799" alt="image" src="https://github.com/user-attachments/assets/f560951e-08a4-4c04-b24d-4f14dc787969" />
+
 
 ### Пошаговое удаление точек
-<img width="1191" height="801" alt="image" src="https://github.com/user-attachments/assets/adaa79ba-3994-4e3f-9489-c883b67be2f6" />
+<img width="1184" height="794" alt="image" src="https://github.com/user-attachments/assets/17dbee04-b259-42c3-99a8-56b816e81e09" />
 
-<img width="1181" height="799" alt="image" src="https://github.com/user-attachments/assets/ec4d7e9e-b21a-4a07-8de3-9593c640d89a" />
+
+<img width="1177" height="792" alt="image" src="https://github.com/user-attachments/assets/6d264011-be4e-4ee1-86de-5cb923f25d5d" />
+
 
 ### Режим изменения координат точки
-<img width="1191" height="794" alt="image" src="https://github.com/user-attachments/assets/e7f40806-4c55-4ef7-85fa-0c3fb6c252c2" />
+<img width="1190" height="806" alt="image" src="https://github.com/user-attachments/assets/b907153a-b7aa-4c31-ace4-e4cf14304fcc" />
 
-<img width="1178" height="801" alt="image" src="https://github.com/user-attachments/assets/1b57fe77-1b02-4054-8704-edf7386138fb" />
+<img width="1176" height="796" alt="image" src="https://github.com/user-attachments/assets/ef9913ce-767f-4d44-bf7f-d9a5482426cd" />
 
-<img width="1188" height="798" alt="image" src="https://github.com/user-attachments/assets/109c66ea-77dc-4004-a50c-e1d297ba6bd8" />
+<img width="1185" height="791" alt="image" src="https://github.com/user-attachments/assets/04497640-d5ca-4699-a3c9-8f3583bf6231" />
+
+
