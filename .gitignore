@@ -394,3 +394,11 @@ dump/
 
 # Если ресурсы не коммитите 
 # resources/*.ttf
+# Visual Studio project files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# SFML DLLs
+*.dll
