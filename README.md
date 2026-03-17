@@ -20,31 +20,39 @@
 ## Windows
 ### Прямая компиляция через g++
 ```
-# Компиляция всех файлов + линковка SFML
-g++ -std=c++17 -Wall -I"C:\SFML\include" -L"C:\SFML\lib" ^
-    Convex-Hull.cpp Point.cpp GameState.cpp Renderer.cpp ^
+:: Компиляция всех файлов + линковка SFML
+g++ -std=c++17 -Wall -mwindows ^
+    -I"C:\SFML\include" -L"C:\SFML\lib" ^
+    Convex-Hull.cpp ^
+    Point.cpp GameState.cpp Renderer.cpp ^
     InputHandler.cpp Button.cpp InputField.cpp ^
     EditPointWindow.cpp ConvexHull.cpp ^
     -lsfml-graphics -lsfml-window -lsfml-system ^
     -o Convex-Hull.exe
 
-# Запуск
+:: Копирование ресурсов (обязательно!)
+xcopy /E /I resources resources\
+
+:: Запуск
 Convex-Hull.exe
 ```
 **Важно:** Укажите правильные пути к SFML (-I для заголовков, -L для библиотек)
 
 ### С помощью Makefile (рекомендуется)
 ```
-# Создание папки сборки
+:: Создание папки сборки
 mkdir build && cd build
 
-# Генерация проекта (укажите путь к SFML, если нужно)
-cmake .. -DSFML_DIR="C:/SFML/lib/cmake/SFML"
+:: Генерация проекта
+cmake .. -G "MinGW Makefiles" -DSFML_DIR="C:/SFML/lib/cmake/SFML"
 
-# Сборка
+:: Сборка
 cmake --build . --config Release
 
-# Запуск
+:: Копирование ресурсов
+xcopy /E /I ..\resources Release\resources\
+
+:: Запуск
 Release\Convex-Hull.exe
 ```
 
@@ -52,25 +60,38 @@ Release\Convex-Hull.exe
 
 ### CMake
 ```
+# Создание папки сборки
 mkdir build && cd build
-cmake ..
-make
+
+# Генерация + сборка
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build .
+
+# Копирование ресурсов
+cp -r ../resources ./
+
+# Запуск
 ./Convex-Hull
 ```
 ### Прямая компиляция
 ```
 g++ -std=c++17 -Wall \
-    main.cpp Point.cpp GameState.cpp Renderer.cpp \
+    Convex-Hull.cpp \
+    Point.cpp GameState.cpp Renderer.cpp \
     InputHandler.cpp Button.cpp InputField.cpp \
     EditPointWindow.cpp ConvexHull.cpp \
     -lsfml-graphics -lsfml-window -lsfml-system \
     -o Convex-Hull
 
+# Копирование ресурсов
+cp -r resources ./
+
+# Запуск
 ./Convex-Hull
 ```
 # Структура проекта
 Convex-Hull/  
-├── Convex-Hull.cpp              # Точка входа, игровой цикл  
+├── Convex-Hull.cpp              # main()
 ├── Point.h / Point.cpp   # Класс точки, утилиты (ориентация, расстояние)  
 ├── GameState.h / GameState.cpp   # Состояние приложения, конфигурация  
 ├── Renderer.h / Renderer.cpp     # Отрисовка всех элементов  
@@ -85,11 +106,11 @@ Convex-Hull/
 └── CMakeLists.txt   # Конфигурация сборки  
 
 # Работа программы
-
+![Convex Hull Visualization 2026-03-17 22-40-09](https://github.com/user-attachments/assets/305ee6ab-3181-4dba-af2b-d91184ee0873)
 
 
 ### Генерация множества из случайных 20 точек
-![Convex Hull Visualization 2026-03-17 22-40-09](https://github.com/user-attachments/assets/305ee6ab-3181-4dba-af2b-d91184ee0873)
+<img width="1179" height="793" alt="image" src="https://github.com/user-attachments/assets/b9333e77-8407-4092-8575-252c4c8addea" />
 
 
 
