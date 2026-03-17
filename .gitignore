@@ -361,3 +361,36 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# ==================== CMake ====================
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+Makefile
+*.cmake
+
+# Папки сборки CMake (разные варианты)
+build/
+Build/
+out/
+CMakeBuild/
+
+# ==================== SFML / Ресурсы ====================
+# Не игнорировать ресурсы, если они нужны в репозитории:
+# !resources/
+
+# Локальные пути к SFML 
+SFML_DIR/
+sfml-*/
+
+# Временные файлы редактора
+*.swp
+*.swo
+*~
+
+# Логи и отладка
+*.log
+dump/
+
+# Если ресурсы не коммитите 
+# resources/*.ttf
